@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 07:53:12 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/11/30 20:00:17 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/01 17:34:03 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int	main(int argc, char **argv)
 	mlx_set_icon(game.mlx, game.textures[5]);
 	mlx_loop(game.mlx);
 	cleanup_game(&game);
+	mlx_terminate(game.mlx);
 	return (0);
 }

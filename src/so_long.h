@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:53:43 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/11/30 22:55:46 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/01 17:46:57 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_game
 }	t_game;
 
 void		ft_find_char(char c, t_game *game);
-int			validate_map(t_map *map);
+int			validate_map(t_map *map, t_game *game);
 void		cleanup_textures(t_game *game);
 void		render_tile(t_game *game, int x, int y);
 t_map		*read_map(const char *filename);

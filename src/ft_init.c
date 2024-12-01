@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 02:34:46 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/11/30 20:31:20 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/01 17:52:04 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int	init_game(t_game *game, char *map_file)
 	ft_memset(game, 0, sizeof(t_game));
 	game->moves = 0;
 	game->map = read_map(map_file);
+	if (!read_map(map_file))
+		return (ft_putstr_fd("Error:\nInvalid map or invalid path\n", 1),
+			cleanup_game(game), 0);
 	ft_find_char('P', game);
-	if (!validate_path(game))
-		return (write(1, "Error\nNo path to collectable or exit", 36), 0);
-	if (!validate_map(game->map))
+	if (!validate_map(game->map, game))
 	{
-		ft_putstr_fd("Error: Invalid map or invalid path\n", 1);
-		cleanup_game(game);
-		return (0);
+		ft_putstr_fd("Error:\nInvalid map or invalid path\n", 1);
+		return (cleanup_game(game), 0);
 	}
 	game->mlx = mlx_init(game->map->width * TILE_SIZE, \
 	game->map->height * TILE_SIZE, "so_long", true);
@@ -56,7 +56,7 @@ int	init_game(t_game *game, char *map_file)
 		return (free_map(game->map), 0);
 	if (!load_textures(game))
 	{
-		ft_putstr_fd("Error: Failed to load textures\n", 1);
+		ft_putstr_fd("Error:\nFailed to load textures\n", 1);
 		free_map(game->map);
 		mlx_terminate(game->mlx);
 		return (0);

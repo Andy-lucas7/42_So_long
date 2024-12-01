@@ -1,7 +1,7 @@
 NAME	:= so_long
 CC		:= cc
 CFLAGS	:= -g3 -Wextra -Wall -Werror
-FLAGSOMLX := -Wunreachable-code -Ofast
+FLAGSOMLX := -Wunreachable -code -Ofast
 LIBMLX	:= ./lib/MLX42
 LIBFT	:= ./lib/libft
 FLAGSMLX = -ldl -lglfw -pthread -lm

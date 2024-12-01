@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:19:08 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/11/30 19:43:39 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/01 17:51:02 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,15 @@ void	ft_find_char(char c, t_game *game)
 	return ;
 }
 
-int	validate_map(t_map *map)
+int	validate_map(t_map *map, t_game *game)
 {
 	int	player;
 	int	exit;
 	int	collect;
 
-	if (!map || map->height < 3 || map->width < 3)
+	if (!map || map->height == 0 || map->width == 0)
+		return (0);
+	if (!validate_path(game))
 		return (0);
 	if (!ft_is_rectangular(map))
 		return (0);
