@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 02:34:46 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/01 17:52:04 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:18:20 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	load_textures(t_game *game)
 	int	i;
 
 	i = 0;
-	game->textures[0] = mlx_load_png("./src/img/zero64.png");
-	game->textures[1] = mlx_load_png("./src/img/one64.png");
-	game->textures[2] = mlx_load_png("./src/img/idle_down64.png");
-	game->textures[3] = mlx_load_png("./src/img/portal.png");
-	game->textures[4] = mlx_load_png("./src/img/collectible64.png");
-	game->textures[5] = mlx_load_png("./src/img/icon.png");
+	game->textures[0] = mlx_load_png("./src/textures/zero64.png");
+	game->textures[1] = mlx_load_png("./src/textures/one64.png");
+	game->textures[2] = mlx_load_png("./src/textures/idle_down64.png");
+	game->textures[3] = mlx_load_png("./src/textures/portal.png");
+	game->textures[4] = mlx_load_png("./src/textures/collectible64.png");
+	game->textures[5] = mlx_load_png("./src/textures/icon.png");
 	while (i < 6)
 	{
 		game->tiles[i] = mlx_texture_to_image(game->mlx, game->textures[i]);
@@ -58,7 +58,6 @@ int	init_game(t_game *game, char *map_file)
 	{
 		ft_putstr_fd("Error:\nFailed to load textures\n", 1);
 		free_map(game->map);
-		mlx_terminate(game->mlx);
 		return (0);
 	}
 	return (1);

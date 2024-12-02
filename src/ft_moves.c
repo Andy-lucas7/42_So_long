@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 00:36:23 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/01 19:56:39 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:40:41 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	validate_win(t_game *game)
 	}
 	else
 	{
-		ft_putstr_fd("\nCongratulations! You won in ", 1);
+		ft_putstr_fd ("\nCongratulations! You won in ", 1);
 		ft_putnbr_fd (game->moves, 1);
 		ft_putstr_fd (" moves!\n", 1);
 		cleanup_game(game);

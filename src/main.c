@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 07:53:12 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/01 17:34:03 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:51:08 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,28 @@ void	cleanup_game(t_game *game)
 	exit (0);
 }
 
+static int	is_end_dotber(char *map_file)
+{
+	int		i;
+
+	i = 0;
+	i = ft_strlen(map_file);
+	if (map_file[i - 1] != 'r')
+		return (0);
+	else if (map_file[i - 2] != 'e')
+		return (0);
+	else if (map_file[i - 3] != 'b')
+		return (0);
+	else if (map_file[i - 4] != '.')
+		return (0);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	if (argc != 2)
+	if (argc != 2 || !is_end_dotber(argv[1]))
 	{
 		ft_putstr_fd ("Error:\nUsage: ./so_long <map.ber>\n", 1);
 		return (0);

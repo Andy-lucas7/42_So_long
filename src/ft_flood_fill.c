@@ -6,13 +6,13 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 04:15:04 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/11/30 17:56:36 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:08:39 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	fill_path(char **grid, int y, int x)
+static void	flood_fill(char **grid, int y, int x)
 {
 	if (grid[y][x] != 'P')
 	{
@@ -25,10 +25,10 @@ static void	fill_path(char **grid, int y, int x)
 		else
 			return ;
 	}
-	fill_path(grid, y + 1, x);
-	fill_path(grid, y - 1, x);
-	fill_path(grid, y, x + 1);
-	fill_path(grid, y, x - 1);
+	flood_fill(grid, y + 1, x);
+	flood_fill(grid, y - 1, x);
+	flood_fill(grid, y, x + 1);
+	flood_fill(grid, y, x - 1);
 }
 
 int	validate_path(t_game *game)
@@ -37,7 +37,7 @@ int	validate_path(t_game *game)
 	int	j;
 
 	i = 0;
-	fill_path(game->map->grid, game->player_y, game->player_x);
+	flood_fill(game->map->grid, game->player_y, game->player_x);
 	while (i < game->map->height)
 	{
 		j = 0;
