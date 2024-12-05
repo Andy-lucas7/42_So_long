@@ -9,7 +9,7 @@ para executar o jogo, basta baixar o repositorio (https://github.com/Andy-lucas7
 ```shell
 git clone git@github.com:Andy-lucas7/So_long-42.git so_long
 ```
-Após baixado, executar o comando ´make´ para compilar o programa.
+Após baixado, executar o comando `make` para compilar o programa.
 ```shell
 make
 ```
