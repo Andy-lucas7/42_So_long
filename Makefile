@@ -29,9 +29,13 @@ $(NAME): $(OBJS)
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
+	@rm -rf $(LIBFT)/*.o
+	@rm -rf $(LIBFT)/get_next_line/*.o
 
 fclean: clean
 	@rm -rf $(NAME)
+	@rm -rf $(LIBFT)/*.a
+	@rm -rf $(LIBFT)/get_next_line/*.a
 
 re: clean all
 
