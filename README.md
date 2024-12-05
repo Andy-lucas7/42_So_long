@@ -19,4 +19,4 @@ Após compilado, é só executar o programa com nome `so_long` seguido do mapa c
 ```
 E pronto! Agora é só se divertir tentando coletar os itens e vencer em menos movimentos possíveis.
 
-![Imagem do so long rodando](https://github.com/Andy-lucas7/So_long-42/blob/main/img/so_long.png)
+![Imagem do so long rodando](https://github.com/Andy-lucas7/So_long-42/blob/main/img/so_long_img.png)
