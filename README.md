@@ -4,7 +4,7 @@ O projeto So Long da 42 é uma introdução divertida às bibliotecas gráficas 
 
 login de cadete: lserrao-.
 
-# Como Executar
+## Como Executar
 para executar o jogo, basta baixar o repositorio (https://github.com/Andy-lucas7/So_long-42.git) Através do comando:
 ```shell
 git clone git@github.com:Andy-lucas7/So_long-42.git so_long
