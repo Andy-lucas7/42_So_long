@@ -1,7 +1,7 @@
 # So_long
 O projeto So Long da 42 é uma introdução divertida às bibliotecas gráficas MLX42 ou MiniLibX, desafiando os cadetes a desenvolverem um jogo onde o objetivo é coletar todos os itens do mapa e alcançar a saída com o menor número de movimentos possível.
 - Projeto autoral.´
-login de cadete: lserrao-.
+  login de cadete: lserrao-.
 
 # Como Executar
 para executar o jogo, basta baixar o repositorio (https://github.com/Andy-lucas7/So_long-42.git) Através do comando:
