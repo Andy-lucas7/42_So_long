@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:23:35 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/01 19:45:15 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/03 09:55:40 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,16 @@ void	cleanup_textures(t_game *game)
 	i = 0;
 	while (i < 6)
 	{
-		if (game->textures[i])
-			mlx_delete_texture(game->textures[i]);
 		if (game->tiles[i])
+		{
 			mlx_delete_image(game->mlx, game->tiles[i]);
+			game->tiles[i] = NULL;
+		}
+		if (game->textures[i])
+		{
+			mlx_delete_texture(game->textures[i]);
+			game->textures[i] = NULL;
+		}
 		i++;
 	}
 }

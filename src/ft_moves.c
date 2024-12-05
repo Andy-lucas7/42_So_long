@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 00:36:23 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/02 17:40:41 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/04 23:19:35 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	validate_win(t_game *game)
 	}
 	else
 	{
-		ft_putstr_fd ("\nCongratulations! You won in ", 1);
+		ft_putstr_fd ("Congratulations!\nYou won in ", 1);
 		ft_putnbr_fd (game->moves, 1);
 		ft_putstr_fd (" moves!\n", 1);
-		cleanup_game(game);
+		mlx_close_window(game->mlx);
 	}
 }
 
@@ -78,7 +78,7 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	if (keydata.action != MLX_PRESS)
 		return ;
 	if (keydata.key == MLX_KEY_ESCAPE)
-		cleanup_game(game);
+		mlx_close_window(game->mlx);
 	else if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
 		new_y--;
 	else if (keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
@@ -89,6 +89,6 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 		new_x++;
 	else
 		return ;
-	if (validate_move(game, new_x, new_y))
+	if (validate_move(game, new_x, new_y) && keydata.key != MLX_KEY_ESCAPE)
 		process_move(game, new_x, new_y);
 }

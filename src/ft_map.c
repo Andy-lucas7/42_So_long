@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:19:08 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/01 17:51:02 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/04 23:27:11 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	ft_is_rectangular(t_map *map)
 	int	line_length;
 
 	i = 0;
+	if (map->height == map->width)
+		return (0);
 	while (i < map->height)
 	{
 		line_length = ft_strlen(map->grid[i]);
@@ -109,12 +111,13 @@ int	validate_map(t_map *map, t_game *game)
 	if (!map || map->height == 0 || map->width == 0)
 		return (0);
 	if (!validate_path(game))
-		return (0);
+		return (ft_putstr_fd("Error:\nInvalid path!\n", 2), 0);
 	if (!ft_is_rectangular(map))
-		return (0);
+		return (ft_putstr_fd("Error:\nMap is not rectangular!\n", 2), 0);
 	if (!ft_check_walls(map))
-		return (0);
+		return (ft_putstr_fd("Error:\nMap is not surrounded for walls!\n", 2),
+			0);
 	if (!ft_count_elements(map, &player, &exit, &collect))
-		return (0);
+		return (ft_putstr_fd("Error:\nInvalid numbers of elements!\n", 2), 0);
 	return (1);
 }

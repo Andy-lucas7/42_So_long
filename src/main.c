@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 07:53:12 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/02 16:51:08 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/04 23:26:28 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,15 @@ void	free_map(t_map *map)
 {
 	int	i;
 
-	i = 0;
 	if (!map)
 		return ;
-	if (map->grid)
+	i = 0;
+	while (i < map->height)
 	{
-		while (i < map->height)
-		{
-			if (map->grid[i])
-				free(map->grid[i]);
-			i++;
-		}
-		free(map->grid);
+		free(map->grid[i]);
+		i++;
 	}
+	free(map->grid);
 	free(map);
 }
 
@@ -51,7 +47,6 @@ void	cleanup_game(t_game *game)
 {
 	cleanup_textures(game);
 	free_map(game->map);
-	exit (0);
 }
 
 static int	is_end_dotber(char *map_file)
@@ -81,12 +76,13 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	if (!init_game(&game, argv[1]))
-		return (cleanup_game(&game), 0);
+	{
+		cleanup_game(&game);
+		return (0);
+	}
 	render_map(&game);
 	mlx_key_hook(game.mlx, key_hook, &game);
 	mlx_set_icon(game.mlx, game.textures[5]);
 	mlx_loop(game.mlx);
-	cleanup_game(&game);
-	mlx_terminate(game.mlx);
 	return (0);
 }

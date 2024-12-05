@@ -6,7 +6,7 @@
 /*   By: lserrao- <lserrao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:53:43 by lserrao-          #+#    #+#             */
-/*   Updated: 2024/12/01 17:46:57 by lserrao-         ###   ########.fr       */
+/*   Updated: 2024/12/03 09:33:45 by lserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void		render_map(t_game *game);
 void		key_hook(mlx_key_data_t keydata, void *param);
 int			init_game(t_game *game, char *map_file);
 void		cleanup_game(t_game *game);
+void		close_game(t_game *game);
 int			validate_path(t_game *game);
 
 #endif
