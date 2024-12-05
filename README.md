@@ -13,8 +13,10 @@ Após baixado, executar o comando `make` para compilar o programa.
 ```shell
 make
 ```
-Após compilado, é só executar o programa com nome so_long seguido do mapa com seu respectivo caminho:
+Após compilado, é só executar o programa com nome `so_long` seguido do mapa com seu respectivo caminho:
 ```shell
 ./so_long src/maps/mandatory/map.ber
 ```
 E pronto! Agora é só se divertir tentando coletar os itens e vencer em menos movimentos possíveis.
+
+![Imagem do so_long](https://ibb.co/KjcRSNC)
